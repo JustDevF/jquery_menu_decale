@@ -1,0 +1,52 @@
+<!--Nous allons créer un menu de navigation interactif. Les élements du menu seront décalés vers la droite au survol du curseur de la souris.-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //chargement de DOM 
+    $(document).ready(function() { 
+        //La méthode hover() est associée aux éléments de la liste constituant le menu de navigation.
+        $('ul#menu li a').hover(function() { 
+            //Au survol de chaque item, le script arrête d’abord toute animation en cours (stop()). Puis, il met en œuvre une animation (animate()) qui consiste à augmenter le retrait par rapport au bord gauche (paddingLeft:"50px").
+            $(this).stop().animate( { paddingLeft:"50px" }, 400 ); 
+        }, 
+        //Lorsque le curseur quitte l’item, le second volet de la méthode hover() fait revenir l’item à sa position initiale.
+        function() { 
+            $(this).stop().animate( { paddingLeft:"0" }, 200 ) 
+        }) 
+    }); 
+</script> 
+<style> 
+    nav ul { 
+        list-style: none;    
+        padding: 0px; 
+        margin: 0px; 
+    } 
+    nav li a { 
+        display: block;     
+        height: 25px; 
+        line-height: 25px; 
+        width: 120px; 
+        background: #99ccff; 
+        border: 1px solid navy; 
+        color: black; 
+        text-decoration: none; 
+        text-align: center; 
+    } 
+</style> 
+</head> 
+<body> 
+<nav> 
+    <ul id="menu"> 
+        <li><a href="#">Menu Item 1</a></li> 
+        <li><a href="#">Menu Item 2</a></li> 
+        <li><a href="#">Menu Item 3</a></li> 
+        <li><a href="#">Menu Item 4</a></li> 
+        <li><a href="#">Menu Item 5</a></li> 
+    </ul> 
+</nav>  
+</body> 
+</html>
